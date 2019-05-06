@@ -1,0 +1,38 @@
+<style>
+  ion-col.someclass {
+    text-align: center;
+  }
+</style>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ objAnimal.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2" offset="5">
+        <img [src]="objAnimal.imagen">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="someclass">
+        <label for=""><b>Duración:</b> {{ objAnimal.duracion }}</label>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-col class="someclass">
+        <label for=""><b>Reproduciendo:</b> {{ objAnimal.reproduciendo }}</label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="someclass">
+        <h4 *ngIf="!objAnimal.reproduciendo" (click)="reproducir(objAnimal)">Play <ion-icon icon="play" size="large"></ion-icon></h4>
+        <h4 *ngIf="objAnimal.reproduciendo" (click)="reproducir(objAnimal)">Pause <ion-icon icon="pause" size="large"></ion-icon></h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
